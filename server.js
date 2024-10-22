@@ -28,7 +28,6 @@ io.on('connection', (socket) => {
 
     socket.on('userName', (nameUser) => {
         arrayUsers.push({name:nameUser, id:idUser})
-        // io.emit('updateNameUser', nameUser)
         io.emit('gettingUsers', arrayUsers) 
 
         console.log("Nome chegou...")

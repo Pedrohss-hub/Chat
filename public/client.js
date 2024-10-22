@@ -59,12 +59,19 @@ inputText.addEventListener('keydown', (event) => {
     }
 })
 
-socket.on('atualizacao', (dados) => {
-    console.log(dados)
-    let serverMensage = document.createElement('p')
-    serverMensage.textContent = dados.value
-    serverMensage.classList.add('own-menssage')
-    boxDisplay.appendChild(serverMensage)
+socket.on('atualizacao', (dado) => {
+    console.log(dado)
+    if (dado.user === nameUser){
+        let serverMensage = document.createElement('p')
+        serverMensage.textContent = dado.value
+        serverMensage.classList.add('own-menssage')
+        boxDisplay.appendChild(serverMensage)
+    } else {
+        serverMensage = document.createElement('p')
+        serverMensage.textContent = dado.value
+        serverMensage.classList.add('menssage')
+        boxDisplay.appendChild(serverMensage)
+    }
 })
 
 // Pegando Histórico
