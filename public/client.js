@@ -62,15 +62,33 @@ inputText.addEventListener('keydown', (event) => {
 socket.on('atualizacao', (dado) => {
     console.log(dado)
     if (dado.user === nameUser){
-        let serverMensage = document.createElement('p')
-        serverMensage.textContent = dado.value
-        serverMensage.classList.add('own-menssage')
-        boxDisplay.appendChild(serverMensage)
+        let bodyMensage = document.createElement('div')
+        bodyMensage.classList.add('body-own-message')
+        let value = document.createElement('p')
+        value.classList.add('value-message')
+        value.textContent = dado.value
+        let time = document.createElement('span')
+        time.classList.add('time-message')
+        time.textContent = dado.time
+
+        bodyMensage.appendChild(value)
+        bodyMensage.appendChild(time)
+
+        boxDisplay.appendChild(bodyMensage)
     } else {
-        serverMensage = document.createElement('p')
-        serverMensage.textContent = dado.value
-        serverMensage.classList.add('menssage')
-        boxDisplay.appendChild(serverMensage)
+        bodyMensage = document.createElement('div')
+        bodyMensage.classList.add('body-message')
+        value = document.createElement('p')
+        value.classList.add('value-message')
+        value.textContent = dado.value
+        time = document.createElement('span')
+        time.classList.add('time-message')
+        time.textContent = dado.time
+
+        bodyMensage.appendChild(value)
+        bodyMensage.appendChild(time)
+
+        boxDisplay.appendChild(bodyMensage)
     }
 })
 
@@ -83,14 +101,24 @@ socket.on('gettingHistoric', (arrayMsg) => {
 
     boxDisplay.innerHTML = ''
     while(i < arrayMsg.length){
-        let serverMensage = document.createElement('p')
-        serverMensage.textContent = arrayMsg[i].value
-        serverMensage.classList.add('menssage')
-        boxDisplay.appendChild(serverMensage)
+        bodyMensage = document.createElement('div')
+        bodyMensage.classList.add('body-message')
+        value = document.createElement('p')
+        value.classList.add('value-message')
+        value.textContent = arrayMsg[i].value
+        time = document.createElement('span')
+        time.classList.add('time-message')
+        time.textContent = arrayMsg[i].time
+
+        bodyMensage.appendChild(value)
+        bodyMensage.appendChild(time)
+
+        boxDisplay.appendChild(bodyMensage)
         
         i++
     }
 })
+
 
 socket.on('gettingUsers', (arrayUsers) => {
     listUsers.innerHTML = '';
