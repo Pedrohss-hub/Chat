@@ -59,10 +59,12 @@ inputText.addEventListener('keydown', (event) => {
     }
 })
 
+let bodyMensage = null
+
 socket.on('atualizacao', (dado) => {
     console.log(dado)
     if (dado.user === nameUser){
-        let bodyMensage = document.createElement('div')
+        bodyMensage = document.createElement('div')
         bodyMensage.classList.add('body-own-message')
         bodyMensage.setAttribute('name-user', dado.user)
         let value = document.createElement('p')
@@ -150,8 +152,14 @@ socket.on('gettingUsers', (arrayUsers) => {
     console.log(arrayUsers);
 });
 
-let c = 0
+/* Responder Mensagem */
 
 document.addEventListener('dblclick', (e) => {
+    let replyMessage = null
     console.log(e.target)
+    if (e.target.className === 'body-message' || 'body-own-message') {
+        replyMessage = e.target
+        console.log(replyMessage.getAttribute('name-user'))
+        console.log(replyMessage.querySelector('.value-message').textContent)
+    }
 })
