@@ -64,6 +64,7 @@ socket.on('atualizacao', (dado) => {
     if (dado.user === nameUser){
         let bodyMensage = document.createElement('div')
         bodyMensage.classList.add('body-own-message')
+        bodyMensage.setAttribute('name-user', dado.user)
         let value = document.createElement('p')
         value.classList.add('value-message')
         value.textContent = dado.value
@@ -78,6 +79,7 @@ socket.on('atualizacao', (dado) => {
     } else {
         bodyMensage = document.createElement('div')
         bodyMensage.classList.add('body-message')
+        bodyMensage.setAttribute('name-user', dado.user)
         value = document.createElement('p')
         value.classList.add('value-message')
         value.textContent = dado.value
@@ -90,6 +92,7 @@ socket.on('atualizacao', (dado) => {
 
         boxDisplay.appendChild(bodyMensage)
     }
+    boxDisplay.scrollTop = boxDisplay.scrollHeight
 })
 
 // Pegando Histórico
@@ -103,6 +106,7 @@ socket.on('gettingHistoric', (arrayMsg) => {
     while(i < arrayMsg.length){
         bodyMensage = document.createElement('div')
         bodyMensage.classList.add('body-message')
+        bodyMensage.setAttribute('name-user', arrayMsg[i].user)
         value = document.createElement('p')
         value.classList.add('value-message')
         value.textContent = arrayMsg[i].value
@@ -117,6 +121,7 @@ socket.on('gettingHistoric', (arrayMsg) => {
         
         i++
     }
+    boxDisplay.scrollTop = boxDisplay.scrollHeight
 })
 
 
@@ -144,3 +149,9 @@ socket.on('gettingUsers', (arrayUsers) => {
 
     console.log(arrayUsers);
 });
+
+let c = 0
+
+document.addEventListener('dblclick', (e) => {
+    console.log(e.target)
+})
