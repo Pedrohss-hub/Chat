@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>É o Brabo 😎</title>
+</head>
+<body>
+
+    <div class="inicial-display">
+        <div class="box-login">
+            <h1 class="title-box-login">Digite o Seu Nome</h1>
+            <input class="input-name-user" type="text">
+            <button class="button-input-name">Enviar</button>
+        </div>
+    </div>
+    
+    <div class="box-tittle">
+        <h2 class="tittle">CHAT</h2>
+        <span class="users-count">teste</span>
+    </div>
+
+    <hr>
+
+    <main>
+        <div class="container-users">
+            <h2 class="container-users-tittle">Usuários</h2>
+            <div class="list-users">
+                <!-- Nome Usuário -->
+            </div>
+        </div>
+
+        <div class="container-message">
+            <div class="box-display-message">
+                <!-- Mensagem Usuário -->
+            </div>
+
+            <div class="append-text">
+                <input class="place-text" type="text" class="box-text">
+                <button class="button-text">Enviar</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
