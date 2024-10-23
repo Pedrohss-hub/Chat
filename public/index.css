@@ -8,6 +8,7 @@
 }
 
 .inicial-display {
+    z-index: 3;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,7 +16,8 @@
     width: 100%;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.7);
-    display: none;
+    
+    /*display: none;*/
 }
 
 .box-login {
@@ -166,6 +168,40 @@ main {
     background-color: rgba(198, 75, 255, 0.8);
 }
 
+.respond-message {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.box-details-answer {
+    font-size: 14px;
+    font-weight: 400;
+    background-color: rgba(160, 160, 192, 0.8);
+    width: 100%;
+    padding: 3px;
+    border-radius: 6px 6px 0px 0px;
+}
+
+.detail-name-user {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.detail-value-user {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.box-answer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
 .box-text {
     width: 500px;
     height: 30px;
@@ -178,11 +214,29 @@ main {
     width: 100%;
 }
 
+.send-message {
+    position: relative;
+    width: 80%;
+}
+
+.respond-text {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    bottom: 35px;
+    padding: 4px;
+    background-color: rgb(160, 154, 154);
+    border-radius: 10px 10px 0px 0px;
+    font-size: 14px;
+}
+
 .place-text {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 80%;
+    width: 100%;
     height: 35px;
     font-size: 16px;
     padding: 0px 10px 0px 10px;
