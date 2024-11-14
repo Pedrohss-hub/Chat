@@ -1,1 +1,1 @@
-Estou desenvolvendo esse diretório para eu poder aprender mais sobre back-end e socket.io
+Estou desenvolvendo esse diretório para eu aprender mais sobre back-end e socket.io
